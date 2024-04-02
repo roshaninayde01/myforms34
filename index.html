@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+    <form id="taskForm">
+        <h1 id="task_form">Task Assignment Form</h1>
+        <div class="inputField">
+            <h3 class="title">Employee Name</h3>
+            <div class="naming_input">
+                <input type="text" placeholder="First Name" id="empFirstName">     
+                <input type="text" placeholder="Last Name" id="empLastName">
+            </div>
+
+            <h3 class="title">Manager Name</h3>
+            <div class="naming_input">
+                <input type="text" placeholder="First Name" id="mFirstName">     
+                <input type="text" placeholder="Last Name" id="mLastName">
+            </div>
+
+            <div class="task">
+                <h3>Task</h3>
+                <br><br>
+                <h3 class="taskId">Task Id</h3>
+                <br>
+            </div>
+            <div class="naming_input">
+                <input type="text" placeholder="" id="taskInput">
+                <input type="text" placeholder="e.g.3" id="taskID">
+            </div>
+
+            <h3 class="title">Status</h3>
+            <div class="radioBTN">
+                <input type="radio" name="button" id="NotStarted" value="Not Started">
+                <label for="NotStarted">Not Started</label><br>
+
+                <input type="radio" name="button" id="InProgress" value="In Progress">
+                <label for="InProgress">In Progress</label><br>
+
+                <input type="radio" name="button" id="Done" value="Done">
+                <label for="Done">Done</label><br>
+
+                <input type="radio" name="button" id="AwaitingFeedback" value="Awaiting Feedback">
+                <label for="AwaitingFeedback">Awaiting Feedback</label>
+            </div>
+
+            <h3 class="title">Additional Notes</h3>
+
+            <textarea class="textarea" cols="90" rows="10" id="taskNotes" placeholder="Type Here..."></textarea>
+            <h3  class="title">Instruction</h3>
+            
+
+            <textarea class="textarea"  name="" id="taskInstructions" cols="90" rows="5"></textarea>
+            <hr>
+            <button type="submit" class="submitButton">Submit</button>
+        </div>
+    </form>
+    <div id="dataOutput"></div>
+    <script>
+        let form = document.querySelector("#taskForm");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            var empFirstName = document.getElementById('empFirstName').value;
+            var empLastName = document.getElementById('empLastName').value;
+            var mgrFirstName = document.getElementById('mFirstName').value;
+            var mgrLastName = document.getElementById('mLastName').value;
+            var task = document.getElementById('taskInput').value;
+            var taskID = document.getElementById('taskID').value;
+            var taskNotes = document.getElementById('taskNotes').value;
+            var taskInstructions = document.getElementById('taskInstructions').value;
+            let dataOutput = document.querySelector("#dataOutput");
+
+            dataOutput.innerHTML = "<strong>Employee First Name:</strong> " + empFirstName +
+                                    "<br><strong>Employee Last Name:</strong> " + empLastName +
+                                    "<br><strong>Manager First Name:</strong> " + mgrFirstName +
+                                    "<br><strong>Manager Last Name:</strong> " + mgrLastName +
+                                    "<br><strong>Task:</strong> " + task +
+                                    "<br><strong>Task ID:</strong> " + taskID +
+                                    "<br><strong>Additional Notes:</strong> " + taskNotes +
+                                    "<br><strong>Instruction:</strong> " + taskInstructions;
+        });
+
+    </script>
+</body>
+</html>
